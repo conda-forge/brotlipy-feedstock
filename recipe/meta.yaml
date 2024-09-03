@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1006
+  number: 1007
   script:
     # Remove linking to C++ runtime on unix
     - sed -i.bak 's/stdc++/m/g' src/brotli/build.py  # [unix]
@@ -24,6 +24,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cffi        >=1.0.0                    # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - setuptools
