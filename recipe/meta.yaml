@@ -36,6 +36,8 @@ requirements:
     - enum34      # [py2k]
 
 test:
+  commands:
+    - python -c "import brotli; data = b'conda-forge Windows ARM64'; assert brotli.decompress(brotli.compress(data)) == data"
   imports:
     - brotli
 
